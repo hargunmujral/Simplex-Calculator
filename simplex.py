@@ -95,17 +95,22 @@ def simplex_with_blanks_rule(A, b, c, k, starting_basis):
 
 
 def main():
-    A = np.array([
-        [1, -1, 1, 0, 0, 0, 0],
-        [1, 0, 0, 1, 0, 0, 0],
-        [4, 3, 0, 0, 1, 0, 0],
-        [1, 3, 0, 0, 0, 1, 0],
-        [-2, 3, 0, 0, 0, 0, 1]
-    ])
-    b = np.array([2, 6, 36, 18, 9])
-    c = np.array([2, 7, 0, 0, 0, 0, 0])
-    k = 0  # some value
-    basis = [1, 4, 5, 6, 7]  # some basis in the form [a,b,c]
+    # Define the matrix A
+    A = np.array([[1, 1, 2, 0], [0, 1, 1, 1]])
+
+    # Define the vector b
+    b = np.array([2, 5])
+
+    # Define the vector c
+    c = np.array([0, 1, 3, 0])
+
+    # Define the constant k at the start
+    k = 0
+
+    # Define a basis
+    basis = [2, 4]
+
+    # Call the function
     simplex_with_blanks_rule(A, b, c, k, basis)
 
 
