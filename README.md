@@ -1,6 +1,8 @@
 # Simplex Calculator
 
-Uses canonical form between iterations to generate simplex solution. Works only for feasible LPs, and can detect unbounded and optimal solutions.
+Uses canonical form between iterations to generate simplex solution. Works only for feasible LPs, and can detect unbounded and optimal solutions. Follows Blank's rule!!
+
+I made this because I could not find any canonical method calculators online. All of them used Tableau method, plus they did not follow Blank's rule.
 
 ## Sample input:
 
