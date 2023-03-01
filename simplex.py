@@ -65,7 +65,8 @@ def simplex_with_blanks_rule(A, b, c, k, starting_basis):
         return A_start, b_start, z_x_start, z_k_start
 
     # the entering variable is the smallest positive index of z_x
-    entering_variable = np.argmin([x if x > 0 else 1e6 for x in z_x_start]) + 1
+    entering_variable = np.argmin(
+        [x if x > 1e-3 else 1e6 for x in z_x_start]) + 1
 
     # the leaving variable is the index in the basis, of the smallest ratio of b_prime to A_prime
     # where A_prime > 0 and b_prime >= 0
@@ -73,12 +74,12 @@ def simplex_with_blanks_rule(A, b, c, k, starting_basis):
     # any negative values of b_prime are removed
 
     A_prime = A_start[:, entering_variable - 1]
-    x_over_y = [x / y if y > 0 and x >=
+    x_over_y = [x / y if y > 1e-3 and x >=
                 0 else 1e6 for x, y in zip(b_start, A_prime)]
     if np.all([x == 1e6 for x in x_over_y]):
         print("The problem is unbounded")
         return
-    print(x_over_y)
+    # print(x_over_y)
     leaving_variable = np.argmin(x_over_y) + 1
     print("entering and leaving:", entering_variable,
           starting_basis[leaving_variable-1])
