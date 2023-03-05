@@ -65,8 +65,14 @@ def simplex_with_blanks_rule(A, b, c, k, starting_basis):
         return A_start, b_start, z_x_start, z_k_start
 
     # the entering variable is the smallest positive index of z_x
-    entering_variable = np.argmin(
-        [x if x > 1e-3 else 1e6 for x in z_x_start]) + 1
+    arr = [x if x > 1e-3 else 1e6 for x in z_x_start]
+    ind = 0
+    for i in range(len(arr)):
+        if arr[i] != 1e6:
+            ind = i
+            break
+
+    entering_variable = ind + 1
 
     # the leaving variable is the index in the basis, of the smallest ratio of b_prime to A_prime
     # where A_prime > 0 and b_prime >= 0
@@ -114,5 +120,21 @@ def main():
     simplex_with_blanks_rule(A, b, c, k, basis)
 
 
+def main2():
+
+    A = np.array([
+        [1, 0, 5, 2, 0, 0, -1],
+        [0, 1, 4, -3, 0, 0, 1],
+        [0, 0, 3, 4, 1, 0, -1],
+        [0, 0, -2, 5, 0, 1, 1]
+    ])
+    b = np.array([6, 9, 14, 15])
+    c = np.array([0, 0, -2, 3, 0, 0, 1])
+    k = 61
+    basis = [1, 2, 5, 6]
+    simplex_with_blanks_rule(A, b, c, k, basis)
+
+
 if __name__ == "__main__":
-    main()
+    # main()
+    main2()
