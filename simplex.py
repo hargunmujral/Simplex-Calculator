@@ -58,7 +58,7 @@ def simplex_with_blanks_rule(A, b, c, k, starting_basis):
     A_start, b_start, z_x_start, z_k_start = canonical_form(
         A, b, c, k, starting_basis)
 
-    if np.all(z_x_start <= 0):
+    if np.all(z_x_start <= 1e-3):
         print("The problem is optimal")
         x = [b if np.all(A_start[:, b - 1] >
              0) and sum(A_start[:, b - 1]) == 1 else 0 for b in starting_basis]
