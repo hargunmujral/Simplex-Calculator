@@ -1,8 +1,8 @@
 # Simplex Calculator
 
-Uses canonical form between iterations to generate simplex solution. Works only for feasible LPs, and can detect unbounded and optimal solutions. Follows Blank's rule!!
+Uses canonical form between iterations to generate simplex solution. Works only for feasible LPs, and can detect unbounded and optimal solutions. Follows Bland's rule!!
 
-I made this because I could not find any canonical method calculators online. All of them used Tableau method, plus they did not follow Blank's rule.
+I made this because I could not find any canonical method calculators online. All of them used Tableau method, plus they did not follow Bland's rule.
 
 ## Sample input:
 
@@ -23,7 +23,7 @@ I made this because I could not find any canonical method calculators online. Al
     basis = [2, 4]
 
     # Call the function
-    simplex_with_blanks_rule(A, b, c, k, basis)
+    simplex_with_blands_rule(A, b, c, k, basis)
 ```
 
 ## Instructions:
