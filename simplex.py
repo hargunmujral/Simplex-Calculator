@@ -53,7 +53,7 @@ def canonical_form(A, b, c, k, basis):
     return A_prime, b_prime, z_x, z_k
 
 
-def simplex_with_blanks_rule(A, b, c, k, starting_basis):
+def simplex_with_blands_rule(A, b, c, k, starting_basis):
 
     A_start, b_start, z_x_start, z_k_start = canonical_form(
         A, b, c, k, starting_basis)
@@ -97,7 +97,7 @@ def simplex_with_blanks_rule(A, b, c, k, starting_basis):
     print("The new basis is: ", new_basis)
 
     # recursively call the function with the new basis
-    simplex_with_blanks_rule(A_start, b_start, z_x_start, z_k_start, new_basis)
+    simplex_with_blands_rule(A_start, b_start, z_x_start, z_k_start, new_basis)
 
 
 def main():
@@ -117,7 +117,7 @@ def main():
     basis = [2, 4]
 
     # Call the function
-    simplex_with_blanks_rule(A, b, c, k, basis)
+    simplex_with_blands_rule(A, b, c, k, basis)
 
 
 def main2():
@@ -132,7 +132,7 @@ def main2():
     c = np.array([0, 0, -2, 3, 0, 0, 1])
     k = 61
     basis = [1, 2, 5, 6]
-    simplex_with_blanks_rule(A, b, c, k, basis)
+    simplex_with_blands_rule(A, b, c, k, basis)
 
 
 if __name__ == "__main__":
